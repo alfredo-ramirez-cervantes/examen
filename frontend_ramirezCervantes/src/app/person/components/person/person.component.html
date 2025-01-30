@@ -1,0 +1,107 @@
+
+<div>
+
+  <h3>Nueva persona</h3>
+        
+  <div class="col-md-6">
+    <label for="input1" class="form-label">Nombre</label>
+    <input [(ngModel)]="newPersona.nombre" class="form-control" id="input1">
+  </div>
+
+  <div class="col-md-6">
+    <label for="input2" class="form-label">Apellido</label>
+    <input [(ngModel)]="newPersona.apellido" class="form-control" id="input2">
+  </div>
+  
+  <div class="col-md-6">
+    <label for="input3" class="form-label">Fecha de Nacimiento</label>
+    <input [(ngModel)]="newPersona.fechaNacimiento" class="form-control" id="input3">
+  </div>
+
+  <div class="col-md-6">
+    <label for="input4" class="form-label">Puesto</label>
+    <input [(ngModel)]="newPersona.puesto" class="form-control" id="input4">
+  </div>
+      
+  <div class="col-md-6">
+    <label for="input5" class="form-label">Sueldo</label>
+    <input [(ngModel)]="newPersona.sueldo" class="form-control" id="input5">
+  </div>
+
+  <br>
+
+  <div class="col-md-6">
+    <button (click)="createPersona()">Guardar</button>      
+  </div>
+
+  <br><br>
+  <h2>Lista de personas</h2>  
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Fecha de Nacimiento</th>
+        <th scope="col">Puesto</th>
+        <th scope="col">Sueldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas" >
+        <td>{{ persona.id }}</td>
+        <td>{{ persona.nombre }}</td>
+        <td>{{ persona.apellido }}</td>
+        <td>{{ persona.fechaNacimiento }}</td>
+        <td>{{ persona.puesto }}</td>
+        <td>{{ persona.sueldo }}</td>
+        <td><button (click)="startEdit(persona)">Editar</button></td>
+        <td><button (click)="deletePersona(persona.id)">Eliminar</button> </td>     
+      </tr>
+    </tbody>
+  </table>
+  
+  <br><br>
+  <div *ngIf="editPersona">
+      <h3>Editar persona</h3>
+      <div class="col-md-6">
+        <label for="input1" class="form-label">Nombre</label>
+        <input [(ngModel)]="editPersona.nombre" class="form-control" id="input1">
+      </div>
+    
+      <div class="col-md-6">
+        <label for="input2" class="form-label">Apellido</label>
+        <input [(ngModel)]="editPersona.apellido" class="form-control" id="input2">
+      </div>
+      
+      <div class="col-md-6">
+        <label for="input3" class="form-label">Fecha de Nacimiento</label>
+        <input [(ngModel)]="editPersona.fechaNacimiento" class="form-control" id="input3">
+      </div>
+    
+      <div class="col-md-6">
+        <label for="input4" class="form-label">Puesto</label>
+        <input [(ngModel)]="editPersona.puesto" class="form-control" id="input4">
+      </div>
+          
+      <div class="col-md-6">
+        <label for="input5" class="form-label">Sueldo</label>
+        <input [(ngModel)]="editPersona.sueldo" class="form-control" id="input5">
+      </div>
+      
+      <br>
+
+      <div class="col-md-6">
+        <button (click)="updatePersona()">Actualizar</button>
+        <br><br>
+        <button (click)="editPersona = null">Cancelar</button>
+      </div>
+    
+      <!-- <input [(ngModel)]="editPersona.nombre" placeholder="Nombre">
+      <input [(ngModel)]="editPersona.apellido" placeholder="Apellido"> -->
+      
+    </div>
+  </div>
+  
